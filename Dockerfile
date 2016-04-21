@@ -13,7 +13,7 @@ COPY ./savinstpkg.deb /
 RUN dpkg -i /savinstpkg.deb || true
 
 # We've installed and updated Sophos, here's our CID. Most users can ignore this.
-VOLUME [ "/opt/sophos-av/update/cache/Primary/" ]
+VOLUME [ "/opt/sophos-av/update/cache/Primary" ]
 
 COPY ./entrypoint.sh /
 # Update, then run.
