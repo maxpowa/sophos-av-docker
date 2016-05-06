@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y wget
 #RUN printf '\nN\n\nf\n\n' | /tmp/sophos-av/install.sh --acceptlicence --autostart=False
 
 # Expose our CID first
-VOLUME [ "/opt/sophos-av/update/cache/Primary" ]
+#VOLUME [ "/opt/sophos-av/update/cache/Primary" ]
 
 COPY ./savinstpkg.deb /
 RUN dpkg -i /savinstpkg.deb || true
