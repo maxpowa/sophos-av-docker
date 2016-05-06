@@ -9,11 +9,11 @@ RUN apt-get update && apt-get install -y wget
 # Unattended install Sophos AV Free, automatically answer the questions
 #RUN printf '\nN\n\nf\n\n' | /tmp/sophos-av/install.sh --acceptlicence --autostart=False
 
+# Expose our CID first
+VOLUME [ "/opt/sophos-av/update/cache/Primary" ]
+
 COPY ./savinstpkg.deb /
 RUN dpkg -i /savinstpkg.deb || true
-
-# We've installed and updated Sophos, here's our CID. Most users can ignore this.
-VOLUME [ "/opt/sophos-av/update/cache/Primary" ]
 
 COPY ./entrypoint.sh /
 # Update, then run.
